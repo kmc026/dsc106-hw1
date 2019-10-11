@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Highcharts Bar Chart</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <div class="row">
+    <div class ="col-sm-6 col-md-6">
+      <div id="container1"></div>
+    </div>
+    <div class ="col-sm-6 col-md-6">
+      <div id="container2"></div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+
+Highcharts.chart('container1', {
+    chart: {
+        type: 'bar'
+    },
+    title: {
+        text: 'Highcharts Bar Chart'
+    },
+    subtitle: {
+        text: 'Source: UC San Diego Admission Dataset'
+    },
+    xAxis: {
+        categories: ['2014', '2015', '2016', '2017', '2018'],
+        title: {
+            text: null
+        }
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: 'Number of students',
+            align: 'high'
+        },
+        labels: {
+            overflow: 'justify'
+        }
+    },
+    tooltip: {
+        valueSuffix: ' millions'
+    },
+    plotOptions: {
+        bar: {
+            dataLabels: {
+                enabled: true
+            }
+        }
+    },
+    legend: {
+        layout: 'vertical',
+        align: 'right',
+        verticalAlign: 'top',
+        x: 0,
+        y: 50,
+        floating: true,
+        borderWidth: 1,
+        backgroundColor:
+            Highcharts.defaultOptions.legend.backgroundColor || '#FFFFFF',
+        shadow: true
+    },
+    credits: {
+        enabled: false
+    },
+    series: [{
+        name: 'fulltime_men_applied',
+        data: [34618, 37009, 39779, 41583, 45636]
+    }, {
+        name: 'fulltime_women_applied',
+        data: [38822, 41047, 44430, 46845, 52265]
+    }, {
+        name: 'fulltime_men_admitted',
+        data: [11758, 12748, 14103, 13981, 13781]
+    }, {
+        name: 'fulltime_women_admitted',
+        data: [12837, 13761, 16170, 16231, 15821]
+    }]
+});
+
+
+
+
+Highcharts.chart('container2', {
+    chart: {
+        plotBackgroundColor: null,
+        plotBorderWidth: null,
+        plotShadow: false,
+        type: 'pie'
+    },
+    title: {
+        text: 'Highcharts Pie Chart for Full Time Women Admitted'
+    },
+    tooltip: {
+        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+    },
+    plotOptions: {
+        pie: {
+            allowPointSelect: true,
+            cursor: 'pointer',
+            dataLabels: {
+                enabled: true,
+                format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+            }
+        }
+    },
+    series: [{
+        name: 'Brands',
+        colorByPoint: true,
+        data: [{
+            name: '2018',
+            y: 9.07,
+            sliced: true,
+            selected: true
+        }, {
+            name: '2017',
+            y: 9.31
+        }, {
+            name: '2016',
+            y: 9.27
+        }, {
+            name: '2015',
+            y: 7.89
+        }, {
+            name: '2014',
+            y: 7.36
+        }, {
+            name: '2013',
+            y: 7.44
+        }, {
+            name: '2012',
+            y: 6.91
+        }, {
+            name: '2011',
+            y: 5.89
+        }, {
+            name: '2010',
+            y: 5.73
+        }, {
+            name: '2009',
+            y: 5.66
+        }, {
+            name: '2008',
+            y: 6.42
+        }, {
+            name: '2007',
+            y: 6.17
+        }, {
+            name: '2006',
+            y: 6.96
+        }, {
+            name: '2005',
+            y: 5.91
+        }]
+    }]
+});
+</script>
+
+</body>
+</html
